@@ -13,7 +13,7 @@
 .darkmodebtn svg{
   width: 30px;
   height: 30px;
-  columns: var(--btn-color);
+  color: var(--btn-color);
 }
 
 .darkmodebtn:hover{

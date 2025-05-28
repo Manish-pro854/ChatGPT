@@ -15,7 +15,7 @@ function Sidebar() {
       }}/>
       <div className="newchat">
         <FaPlus />
-        {extend?<p>New Chat</p>:""}
+        {extend?<p>New Chat</p>:""} 
       </div>
       <div className="recent">
         <FaRegMessage />

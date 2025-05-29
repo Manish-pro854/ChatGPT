@@ -38,9 +38,10 @@ function ChatSection() {
       </div>
       <div className="bottomsection">
         <input onChange={(e)=>setInput(e.target.value)} type="text" placeholder='Enter a prompt' value={input}/>
-        <button id='sendbtn' onClick={()=>{
+        {input?<button id='sendbtn' onClick={()=>{
           sent(input)
-        }}><LuSendHorizontal /></button>
+        }}><LuSendHorizontal /></button>:null}
+        
         <Darkmode/>
       </div>
     </div>

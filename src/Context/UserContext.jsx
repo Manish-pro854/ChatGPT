@@ -7,14 +7,20 @@ function UserContext({children}) {
   const [showResult,setShowResult]=useState(false)
   const [loading,setLoading]=useState(false)
   const [resultData,setResultData]=useState("")
-  const [recentPrompt,setResetPrompt]=useState("")
+  const [recentPrompt,setRecentPrompt]=useState("")
+  const [prevPrompt,setPrevPrompt]=useState([])
 
+function newChat(){
+  setShowResult(false)
+  setLoading(false)
+}
 
 async function sent(input){
   setResultData("")
   setShowResult(true)
-  setResetPrompt(input)
+  setRecentPrompt(input)
   setLoading(true)
+  setPrevPrompt(prev=>[...prev,input])
   let response=await run(input)
   setResultData(response.split("**") && response.split("*"))
   setLoading(false)
@@ -31,7 +37,10 @@ async function sent(input){
     resultData,
     setResultData,
     recentPrompt,
-    setResetPrompt
+    setRecentPrompt,
+    prevPrompt,
+    setPrevPrompt,
+    newChat
   }
   return (
     <>
